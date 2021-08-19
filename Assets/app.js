@@ -1,3 +1,5 @@
+let workday = JSON.parse(localStorage.getItem('workday')) || schedule
+
 let currentDate = moment().format('dddd, MMMM Do')
 
 document.getElementById('currentDay').textContent = currentDate
@@ -27,7 +29,47 @@ for (let i = 8; i <= 17; i++) {
 
   if (presentHour == timeInteger) {
     document.getElementById(timeCounter).nextElementSibling.children[0].classList.add('present')
-    
+    }
+
+  else if (presentHour < timeInteger) {
+    document.getElementById(timeCounter).nextElementSibling.children[0].classList.add('future')
   }
+  else if (presentHour > timeInteger) {
+    document.getElementById(timeCounter).nextElementSibling.children[0].classList.add('past')
+  }
+  let planCounter = "plan" + i
+  document.getElementById(planCounter).textContent = workday
+  [planCounter]
 }
+
+
+let schedule = {
+  'plan8' : '',
+  'plan9': '',
+  'plan10': '',
+  'plan11': '',
+  'plan12': '',
+  'plan13': '',
+  'plan14': '',
+  'plan15': '',
+  'plan16': '',
+  'plan17': '',
+}
+
+
+
+document.addEventListener('click', event =>{
+  if (event.target.classList.contains('saveBtn')) {
+
+    let note = event.target.previousElementSibling.children[0].value
+
+    let plan = event.target.previousElementSibling.children[0].id
+
+    workday[plan] = note
+
+    localStorage.setItem('workday' , JSON.stringify(workday))
+  }
+})
+
+
 
