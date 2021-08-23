@@ -22,6 +22,8 @@ const stringInteger = (timeString) => {
   }
 }
 
+//comment
+
 for (let i = 8; i <= 17; i++) {
   let timeCounter = "time" + i
   let timeString = document.getElementById(timeCounter).textContent
