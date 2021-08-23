@@ -1,3 +1,16 @@
+let schedule = {
+  'plan8': '',
+  'plan9': '',
+  'plan10': '',
+  'plan11': '',
+  'plan12': '',
+  'plan13': '',
+  'plan14': '',
+  'plan15': '',
+  'plan16': '',
+  'plan17': '',
+}
+
 let workday = JSON.parse(localStorage.getItem('workday')) || schedule
 
 let currentDate = moment().format('dddd, MMMM Do')
@@ -40,23 +53,11 @@ for (let i = 8; i <= 17; i++) {
     document.getElementById(timeCounter).nextElementSibling.children[0].classList.add('past')
   }
   let planCounter = "plan" + i
-  document.getElementById(planCounter).textContent = workday
-  [planCounter]
+  document.getElementById(planCounter).textContent = workday[planCounter]
 }
 
 
-let schedule = {
-  'plan8' : '',
-  'plan9': '',
-  'plan10': '',
-  'plan11': '',
-  'plan12': '',
-  'plan13': '',
-  'plan14': '',
-  'plan15': '',
-  'plan16': '',
-  'plan17': '',
-}
+
 
 
 
